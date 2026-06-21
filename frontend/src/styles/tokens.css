@@ -1,0 +1,217 @@
+/**
+ * Project Sentinel — Design Tokens
+ * ---------------------------------
+ * Single source of truth for the visual language: color, type, spacing,
+ * radius, elevation and motion. Components should always consume these
+ * custom properties rather than hard-coded values so the whole product
+ * stays visually consistent and themeable.
+ *
+ * Theming: tokens are defined for the dark surface (the product's primary,
+ * "control room" theme) on :root, and overridden under [data-theme="light"].
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* ---------------------------------------------------------------- */
+  /* Brand                                                             */
+  /* ---------------------------------------------------------------- */
+  --brand-50:  #f4f0ff;
+  --brand-100: #e9e1ff;
+  --brand-200: #d3c2ff;
+  --brand-300: #b194ff;
+  --brand-400: #9266ff;
+  --brand-500: #7c4dff; /* primary brand */
+  --brand-600: #6c2bff;
+  --brand-700: #5a1fe0;
+  --brand-800: #4818b0;
+  --brand-900: #371686;
+
+  --color-brand: var(--brand-500);
+  --color-brand-strong: var(--brand-400);
+  --color-brand-bg: rgba(124, 77, 255, 0.14);
+  --color-brand-border: rgba(124, 77, 255, 0.4);
+  --gradient-brand: linear-gradient(135deg, #9266ff 0%, #6c2bff 60%, #4f1fc7 100%);
+
+  /* ---------------------------------------------------------------- */
+  /* Semantic status colors                                           */
+  /* ---------------------------------------------------------------- */
+  --color-success: #2ed573;
+  --color-success-strong: #4ade80;
+  --color-success-bg: rgba(46, 213, 115, 0.12);
+  --color-success-border: rgba(46, 213, 115, 0.35);
+
+  --color-danger: #ff5470;
+  --color-danger-strong: #ff7b90;
+  --color-danger-bg: rgba(255, 84, 112, 0.12);
+  --color-danger-border: rgba(255, 84, 112, 0.35);
+
+  --color-warning: #ffb547;
+  --color-warning-strong: #ffc56e;
+  --color-warning-bg: rgba(255, 181, 71, 0.12);
+  --color-warning-border: rgba(255, 181, 71, 0.35);
+
+  --color-info: #4fb6ff;
+  --color-info-bg: rgba(79, 182, 255, 0.12);
+  --color-info-border: rgba(79, 182, 255, 0.35);
+
+  /* ---------------------------------------------------------------- */
+  /* Surfaces & text (dark theme)                                      */
+  /* ---------------------------------------------------------------- */
+  --color-canvas: #08090d;
+  --color-canvas-alt: #0c0e14;
+  --color-surface: #111319;
+  --color-surface-elevated: #15171f;
+  --color-surface-hover: #191c26;
+  --color-surface-sunken: #0c0d12;
+
+  --color-border: #22242e;
+  --color-border-strong: #2d303c;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+
+  --color-text-primary: #f3f4f7;
+  --color-text-secondary: #a3a7b7;
+  --color-text-tertiary: #6b7080;
+  --color-text-inverse: #0a0b0f;
+  --color-text-on-brand: #ffffff;
+
+  --color-overlay: rgba(5, 6, 10, 0.7);
+
+  /* ---------------------------------------------------------------- */
+  /* Typography                                                        */
+  /* ---------------------------------------------------------------- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+    monospace;
+
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14.5px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 34px;
+  --text-4xl: 42px;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.02em;
+  --tracking-tighter: -0.035em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+
+  /* ---------------------------------------------------------------- */
+  /* Spacing (4px base scale)                                          */
+  /* ---------------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---------------------------------------------------------------- */
+  /* Radius                                                            */
+  /* ---------------------------------------------------------------- */
+  --radius-sm: 7px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  /* ---------------------------------------------------------------- */
+  /* Elevation                                                         */
+  /* ---------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24), 0 2px 6px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.36), 0 2px 6px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.44), 0 4px 10px rgba(0, 0, 0, 0.24);
+
+  --glow-brand: 0 0 0 1px var(--color-brand-border), 0 0 24px -6px rgba(124, 77, 255, 0.55);
+  --glow-success: 0 0 0 1px var(--color-success-border), 0 0 24px -6px rgba(46, 213, 115, 0.5);
+  --glow-danger: 0 0 0 1px var(--color-danger-border), 0 0 24px -6px rgba(255, 84, 112, 0.5);
+  --glow-warning: 0 0 0 1px var(--color-warning-border), 0 0 24px -6px rgba(255, 181, 71, 0.5);
+
+  /* ---------------------------------------------------------------- */
+  /* Motion                                                            */
+  /* ---------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 360ms;
+
+  /* ---------------------------------------------------------------- */
+  /* Layout                                                            */
+  /* ---------------------------------------------------------------- */
+  --content-max-width: 1320px;
+  --header-height: 64px;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* ====================================================================== */
+/* Light theme override                                                   */
+/* ====================================================================== */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-canvas: #f7f7f9;
+  --color-canvas-alt: #f1f1f5;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-hover: #f7f6fb;
+  --color-surface-sunken: #f1f0f5;
+
+  --color-border: #e7e6ee;
+  --color-border-strong: #d8d7e3;
+  --color-border-subtle: rgba(16, 14, 30, 0.06);
+
+  --color-text-primary: #15131f;
+  --color-text-secondary: #5d5b6b;
+  --color-text-tertiary: #8b899a;
+  --color-text-inverse: #ffffff;
+
+  --color-overlay: rgba(20, 18, 30, 0.45);
+
+  --color-brand-bg: rgba(124, 77, 255, 0.08);
+  --color-brand-border: rgba(124, 77, 255, 0.3);
+
+  --color-success-bg: rgba(22, 163, 74, 0.08);
+  --color-success-border: rgba(22, 163, 74, 0.28);
+  --color-success: #16a34a;
+  --color-success-strong: #15803d;
+
+  --color-danger-bg: rgba(225, 29, 72, 0.08);
+  --color-danger-border: rgba(225, 29, 72, 0.28);
+  --color-danger: #e11d48;
+  --color-danger-strong: #be123c;
+
+  --color-warning-bg: rgba(217, 119, 6, 0.1);
+  --color-warning-border: rgba(217, 119, 6, 0.3);
+  --color-warning: #d97706;
+  --color-warning-strong: #b45309;
+
+  --shadow-xs: 0 1px 2px rgba(20, 18, 30, 0.06);
+  --shadow-sm: 0 1px 2px rgba(20, 18, 30, 0.05), 0 2px 6px rgba(20, 18, 30, 0.05);
+  --shadow-md: 0 4px 14px rgba(20, 18, 30, 0.08), 0 1px 3px rgba(20, 18, 30, 0.06);
+  --shadow-lg: 0 12px 28px rgba(20, 18, 30, 0.1), 0 2px 6px rgba(20, 18, 30, 0.06);
+  --shadow-xl: 0 24px 48px rgba(20, 18, 30, 0.14), 0 4px 10px rgba(20, 18, 30, 0.08);
+}

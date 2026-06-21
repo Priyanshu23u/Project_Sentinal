@@ -1,0 +1,5 @@
+{
+  "name": "primary",
+  "listen": "0.0.0.0:8666",
+  "upstream": "primary-api:8081"
+}

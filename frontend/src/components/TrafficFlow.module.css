@@ -1,0 +1,218 @@
+.card {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+.diagram {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.diagramLoading {
+  opacity: 0.5;
+}
+
+/* -------------------------------------------------------------- */
+/* Node                                                             */
+/* -------------------------------------------------------------- */
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  max-width: 200px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-sunken);
+  text-align: center;
+  transition: border-color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+.nodeIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+  transition: inherit;
+}
+
+.nodeLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.nodeSub {
+  font-size: var(--text-2xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.nodeHighlight {
+  border-color: var(--color-brand-border);
+  background: var(--color-brand-bg);
+}
+.nodeHighlight .nodeIcon {
+  background: rgba(124, 77, 255, 0.18);
+  color: var(--color-brand-strong);
+}
+
+.nodeActive {
+  border-color: var(--color-success-border);
+  background: var(--color-success-bg);
+}
+.nodeActive .nodeIcon {
+  background: rgba(46, 213, 115, 0.16);
+  color: var(--color-success);
+}
+.nodeActive .nodeSub {
+  color: var(--color-success);
+}
+
+.nodeMuted {
+  opacity: 0.45;
+}
+
+/* -------------------------------------------------------------- */
+/* Connectors                                                       */
+/* -------------------------------------------------------------- */
+.connector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connectorVertical {
+  width: 2px;
+  height: 30px;
+}
+
+.connectorLine {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-border-strong) 0,
+    var(--color-border-strong) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.connectorActive .connectorLine {
+  background: var(--color-success);
+  opacity: 0.5;
+}
+
+.connectorDashed .connectorLine {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-warning) 0,
+    var(--color-warning) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0.7;
+  animation: dash-march 0.6s linear infinite;
+}
+
+@keyframes dash-march {
+  to {
+    background-position: 0 8px;
+  }
+}
+
+.connectorDot {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: var(--radius-full);
+  background: var(--color-success-strong);
+  box-shadow: 0 0 8px 1px rgba(46, 213, 115, 0.7);
+  animation: travel-vertical 1.4s var(--ease-in-out) infinite;
+}
+
+@keyframes travel-vertical {
+  0% {
+    top: -2px;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 4px);
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------------- */
+/* Branches                                                          */
+/* -------------------------------------------------------------- */
+.branches {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-8);
+  width: 100%;
+  margin-top: 0;
+}
+
+.branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 220px;
+}
+
+@media (max-width: 480px) {
+  .branches {
+    gap: var(--space-4);
+  }
+  .node {
+    padding: var(--space-2) var(--space-3);
+  }
+}

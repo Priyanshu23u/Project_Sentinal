@@ -1,0 +1,77 @@
+services:
+
+  primary-api:
+    build:
+      context: ./primary-api
+
+    container_name: primary-api
+
+    ports:
+      - "8081:8081"
+
+  secondary-api:
+    build:
+      context: ./secondary-api
+
+    container_name: secondary-api
+
+    ports:
+      - "8082:8082"
+
+  toxiproxy:
+    image: shopify/toxiproxy
+
+    container_name: toxiproxy
+
+    ports:
+      - "8474:8474"
+      - "8666:8666"
+
+  toxiproxy-init:
+    image: curlimages/curl
+
+    container_name: toxiproxy-init
+
+    depends_on:
+      - toxiproxy
+      - primary-api
+
+    volumes:
+      - ./proxy.json:/proxy.json
+
+    command: >
+      sh -c "
+      sleep 10 &&
+      curl -X POST http://toxiproxy:8474/proxies
+      -H 'Content-Type: application/json'
+      --data-binary @/proxy.json
+      "
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: backend
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - primary-api
+      - secondary-api
+      - toxiproxy
+      - toxiproxy-init
+
+    mem_limit: 128m
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: frontend
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - backend

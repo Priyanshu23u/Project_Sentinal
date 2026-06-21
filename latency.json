@@ -1,0 +1,7 @@
+{
+  "name": "latency",
+  "type": "latency",
+  "attributes": {
+    "latency": 500
+  }
+}
