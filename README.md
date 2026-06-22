@@ -3,6 +3,9 @@
 A fault-tolerant API Multiplexer built using Go, React, Docker, WebSockets, Circuit Breaker Pattern, and Chaos Engineering principles.
 
 ---
+## Demo Video
+
+[Project Sentinal Demo](https://youtu.be/z7jkBrD2igk)
 
 # Overview
 
