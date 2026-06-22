@@ -319,6 +319,20 @@ All metrics are updated through WebSocket streaming.
 
 ---
 
+# Screenshots
+
+## Normal Operation
+
+![Normal Dashboard](<img width="1917" height="982" alt="Screenshot 2026-06-22 072118" src="https://github.com/user-attachments/assets/6b6d4159-7ed2-411c-b5b8-7da35b7cf489" />
+)
+
+## Circuit Open / Failover
+
+![Failover Dashboard](<img width="1918" height="983" alt="Screenshot 2026-06-22 072202" src="https://github.com/user-attachments/assets/77735b6d-1fd9-4495-aa19-901545e01cd3" />
+)
+
+---
+
 # Future Enhancements
 
 * Prometheus Metrics
